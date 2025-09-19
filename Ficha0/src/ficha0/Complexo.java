@@ -61,12 +61,20 @@ public class Complexo {
         double i = a*d+b*c;
         return new Complexo(r,i);
     } 
- public static Complexo dividir(Complexo c1, Complexo c2) { 
-  // devolve um número complexo com a divisão de c1 e c2 
-          } 
- public static Complexo conjugado(Complexo c) { 
-  // devolve um número complexo com o conjugado de c 
-          } 
+    
+    public static Complexo dividir(Complexo c1, Complexo c2) { 
+        // devolve um número complexo com a divisão de c1 e c2
+        // (a+bi)/(c+di) = (a+bi)*(c-di) / (c+di)*(c-di)
+        Complexo num = multiplicar(c1, conjugado(c2));
+        Complexo den = multiplicar(c2, conjugado(c2));
+        return new Complexo(num.r/den.r, num.i/den.r);
+    }
+    
+    public static Complexo conjugado(Complexo c) { 
+        // devolve um número complexo com o conjugado de c
+        // conjugado(a+bi) = a-bi
+        return new Complexo(c.r, -1*c.i);
+    } 
  public String toString() { 
   // devolve uma string no formato a+bi ou a-bi ou -a+bi ou -a-bi 
       // consoante os termos reais e imaginários sejam positivos ou 
