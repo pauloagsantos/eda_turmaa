@@ -9,12 +9,19 @@ package ficha0;
  * @author IPT
  */
 public class Complexo {
+    
+    private double r, i;
+    
     public Complexo() { 
-  // cria o seguinte número complexo:  0+0i 
- } 
- public Complexo(double a, double b) { 
-  // cria o seguinte número complexo: a+bi 
- } 
+        // cria o seguinte número complexo:  0+0i 
+        this(0,0);
+    } 
+    
+    public Complexo(double a, double b) { 
+        // cria o seguinte número complexo: a+bi 
+        this.r = a;
+        this.i = b;
+    } 
  public double getParteReal() { 
   // devolve a parte real do complexo 
  } 
