@@ -49,9 +49,18 @@ public class Complexo {
         return new Complexo(r,i);
     } 
   
-          public static Complexo multiplicar(Complexo c1, Complexo c2) { 
-  // devolve um número complexo com a multiplicação de c1 e c2 
-          } 
+    public static Complexo multiplicar(Complexo c1, Complexo c2) { 
+        // devolve um número complexo com a multiplicação de c1 e c2 
+        //(a+bi)*(c+di) = ac+adi+bci-bd = (ac-bd)+(ad+bc)i
+        double a = c1.r;
+        double b = c1.i;
+        double c = c2.r;
+        double d = c2.i;
+        
+        double r = a*c-b*d;
+        double i = a*d+b*c;
+        return new Complexo(r,i);
+    } 
  public static Complexo dividir(Complexo c1, Complexo c2) { 
   // devolve um número complexo com a divisão de c1 e c2 
           } 
