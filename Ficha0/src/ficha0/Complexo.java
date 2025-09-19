@@ -75,16 +75,39 @@ public class Complexo {
         // conjugado(a+bi) = a-bi
         return new Complexo(c.r, -1*c.i);
     } 
- public String toString() { 
-  // devolve uma string no formato a+bi ou a-bi ou -a+bi ou -a-bi 
-      // consoante os termos reais e imaginários sejam positivos ou 
-  // negativos 
- } 
- public boolean equals(Object o) { 
-  // devolve true ou false consoante o complexo seja igual ou 
-  // diferente a o 
- } 
- public Object clone() { 
-  // devolve um novo número complexo com o mesmo valor 
- }
+    
+    public String toString() { 
+        // devolve uma string no formato a+bi ou a-bi ou -a+bi ou -a-bi 
+        // consoante os termos reais e imaginários sejam positivos ou 
+        // negativos
+        StringBuilder sb = new StringBuilder();
+        sb.append(r);
+        if (i>=0)
+            sb.append("+");
+        sb.append(i);
+        sb.append("i");
+        return sb.toString();
+    } 
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Complexo other = (Complexo) obj;
+        if (Double.doubleToLongBits(this.r) != Double.doubleToLongBits(other.r)) {
+            return false;
+        }
+        return Double.doubleToLongBits(this.i) == Double.doubleToLongBits(other.i);
+    }
+    
+    public Object clone() { 
+        // devolve um novo número complexo com o mesmo valor 
+        return new Complexo(r,i);
+    }
 }
