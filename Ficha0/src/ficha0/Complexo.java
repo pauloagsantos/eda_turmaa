@@ -40,9 +40,14 @@ public class Complexo {
         double i = c1.i+c2.i;
         return new Complexo(r,i);
     }
+    
     public static Complexo subtrair(Complexo c1, Complexo c2) { 
-  // devolve um número complexo com a subtracção de c1 e c2 
-          } 
+        // devolve um número complexo com a subtracção de c1 e c2 
+        //(a+bi)-(c+di) = (a-c)+(b-d)i
+        double r = c1.r-c2.r;
+        double i = c1.i-c2.i;
+        return new Complexo(r,i);
+    } 
   
           public static Complexo multiplicar(Complexo c1, Complexo c2) { 
   // devolve um número complexo com a multiplicação de c1 e c2 
