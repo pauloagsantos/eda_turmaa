@@ -22,13 +22,16 @@ public class Complexo {
         this.r = a;
         this.i = b;
     } 
- public double getParteReal() { 
-  // devolve a parte real do complexo 
- } 
+    
+    public double getParteReal() { 
+        // devolve a parte real do complexo 
+        return this.r;
+    } 
  
- public double getParteImaginaria() { 
-  // devolve a parte imaginaria do complexo 
- } 
+    public double getParteImaginaria() { 
+    // devolve a parte imaginaria do complexo 
+        return this.i;
+    } 
  public static Complexo somar(Complexo c1, Complexo c2) { 
   // devolve um número complexo com a soma de c1 e c2 
           }
