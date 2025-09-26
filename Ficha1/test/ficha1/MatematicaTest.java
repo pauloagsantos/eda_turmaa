@@ -4,6 +4,7 @@
  */
 package ficha1;
 
+import java.math.BigInteger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -42,12 +43,12 @@ public class MatematicaTest {
     @Test
     public void testFactorialI() {
         System.out.println("factorialI");
-        assertEquals(1, Matematica.factorialI(0));
-        assertEquals(1, Matematica.factorialI(1));
-        assertEquals(2, Matematica.factorialI(2));
-        assertEquals(6, Matematica.factorialI(3));
-        assertEquals(24, Matematica.factorialI(4));
-        assertEquals(120, Matematica.factorialI(5));
+        assertEquals(BigInteger.valueOf(1), Matematica.factorialI(0));
+        assertEquals(BigInteger.valueOf(1), Matematica.factorialI(1));
+        assertEquals(BigInteger.valueOf(2), Matematica.factorialI(2));
+        assertEquals(BigInteger.valueOf(6), Matematica.factorialI(3));
+        assertEquals(BigInteger.valueOf(24), Matematica.factorialI(4));
+        assertEquals(BigInteger.valueOf(120), Matematica.factorialI(5));
     }
 
     /**
@@ -56,12 +57,12 @@ public class MatematicaTest {
     @Test
     public void testFactorialR() {
         System.out.println("factorialR");
-        assertEquals(1, Matematica.factorialR(0));
-        assertEquals(1, Matematica.factorialR(1));
-        assertEquals(2, Matematica.factorialR(2));
-        assertEquals(6, Matematica.factorialR(3));
-        assertEquals(24, Matematica.factorialR(4));
-        assertEquals(120, Matematica.factorialR(5));
+        assertEquals(BigInteger.valueOf(1), Matematica.factorialR(0));
+        assertEquals(BigInteger.valueOf(1), Matematica.factorialR(1));
+        assertEquals(BigInteger.valueOf(2), Matematica.factorialR(2));
+        assertEquals(BigInteger.valueOf(6), Matematica.factorialR(3));
+        assertEquals(BigInteger.valueOf(24), Matematica.factorialR(4));
+        assertEquals(BigInteger.valueOf(120), Matematica.factorialR(5));
     }
     
 }
