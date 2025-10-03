@@ -31,8 +31,8 @@ public class Ficha1 {
      */
     public static void main(String[] args) {
         for(int i=1000; i<=20000; i+=1000) {
-            System.out.println(i+":"+runXtimes(i, 10, false)
-                                +":"+runXtimes(i, 10, true));
+            System.out.println(i+":"+runXtimes(i, 1, false)
+                                +":"+runXtimes(i, 1, true));
         }
     }
     
