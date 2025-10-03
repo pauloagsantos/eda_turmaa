@@ -25,7 +25,7 @@ public class LimitedStack implements Stack {
 
     @Override
     public void push(Object item) {
-        if (top == array.length)
+        if (top == array.length-1)
             throw new StackFullException();
         top++;
         array[top] = item;
