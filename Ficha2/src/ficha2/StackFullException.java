@@ -8,7 +8,7 @@ package ficha2;
  *
  * @author IPT
  */
-public class StackFullException extends Exception {
+public class StackFullException extends RuntimeException {
     public StackFullException() {
         super("Pilha Cheia!!!");
     }
