@@ -105,6 +105,22 @@ public class LinkedDupleList implements LinkedList {
         return tail.data;    
     }
     
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        if (isEmpty())
+            sb.append("null");
+        else {
+            Item i = head;
+            while(i!=null) {
+                sb.append(i.data);
+                sb.append(" ");
+                i = i.next;
+            }
+        }
+        return sb.toString().trim();
+    }
+    
     private class Item {
         Object data;
         Item next;
