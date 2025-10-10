@@ -4,6 +4,8 @@
  */
 package ficha3;
 
+import java.util.Random;
+
 /**
  *
  * @author IPT
@@ -15,6 +17,8 @@ public class Ficha3 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Random r = new Random();
+        //for(int i)
     }
     
 }
