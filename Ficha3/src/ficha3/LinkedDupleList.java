@@ -27,10 +27,12 @@ public class LinkedDupleList implements LinkedList {
         Item item = new Item();
         item.data = o;
         item.next = null;
+        item.previous = null;
         if (head == null)
             head = tail = item;
         else {
-            item.next = head;          
+            item.next = head; 
+            head.previous = item;
             head = item;
         }
     }
@@ -40,10 +42,12 @@ public class LinkedDupleList implements LinkedList {
         Item item = new Item();
         item.data = o;
         item.next = null;
+        item.previous = null;
         if (head == null)
             head = tail = item;
         else {
             tail.next = item;
+            item.previous = tail;
             tail = item;
         }    
     }
@@ -59,24 +63,30 @@ public class LinkedDupleList implements LinkedList {
     @Override
     public boolean remove(Object o) {
         if (head == null)  // Situação 1
-            return false;
+            return false; // lista vazia, sai
         else {
-            Item i = head;
-            if (i.data.equals(o)) {
-                if (head == tail) // Situação 2
+            if (head.data.equals(o)) { // o elemento a apagar esta no inicio
+                if (head == tail) // Situação 2 lista com um elemento
                     head = tail = null;
-                else // Situação 3
+                else { // Situação 3
                     head = head.next;
+                    head.previous = null;
+                }
                 return true;
             }
-            while (i.next != null && !i.next.data.equals(o) )
+            Item i = head.next;
+            while (i != null && !i.data.equals(o) )
                 i = i.next;
-            if (i.next != null) {
-                if (i.next == tail) // Situação 4
-                    tail = i;
-                i.next = i.next.next; // Situação 5
+            if (i == tail) { //Situação 4
+                tail = tail.previous;
+                tail.next = null;
                 return true;
-            }
+            } else   // Situação 5
+                 if (i!=null) {
+                     i.previous.next = i.next;
+                     i.next.previous = i.previous;
+                     return true;
+                 }
             return false; // Situação 6
         }
     }
