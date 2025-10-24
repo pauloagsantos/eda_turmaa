@@ -65,6 +65,30 @@ public class BinarySearchTree implements Tree {
     public boolean remove(Comparable o) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
+    private Node findParent(Comparable o) {
+        return findParent(root, o);
+    }
+    
+    private Node findParent(Node current, Comparable o) {
+        if (o.equals(current.data))
+            return null;
+        else {
+            if (o.compareTo(current.data)<0)
+                if (current.left == null)
+                    return null;
+                else if (current.left.data.equals(o))
+                    return current;
+                else
+                    return findParent(current.left, o);
+            else if (current.right == null)
+                return null;
+            else if (current.right.data.equals(o))
+                return current;
+            else
+                return findParent(current.right, o);
+        }
+    }
 
     @Override
     public Comparable findMin() {
