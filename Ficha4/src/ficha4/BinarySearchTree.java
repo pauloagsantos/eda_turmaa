@@ -89,6 +89,21 @@ public class BinarySearchTree implements Tree {
                 return findParent(current.right, o);
         }
     }
+    
+    public Node find(Comparable o) {
+        return find(root, o);
+    }
+    
+    private Node find(Node current, Comparable o) {
+        if (current == null)
+            return  null;
+        else if (current.data.equals(o))
+            return current;
+        else if (o.compareTo(current.data)<0)
+            return find(current.left, o);
+        else
+            return find(current.right, o);       
+    }
 
     @Override
     public Comparable findMin() {
