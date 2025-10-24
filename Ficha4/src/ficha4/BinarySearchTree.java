@@ -33,7 +33,7 @@ public class BinarySearchTree implements Tree {
             add(root, node);    
     }
     
-    public void add(Node current, Node node) {
+    private void add(Node current, Node node) {
         if (node.data.compareTo(current.data)<0)
             if (current.left == null)
                 current.left = node;
@@ -128,7 +128,7 @@ public class BinarySearchTree implements Tree {
         }
     }
     
-    public Node find(Comparable o) {
+    private Node find(Comparable o) {
         return find(root, o);
     }
     
