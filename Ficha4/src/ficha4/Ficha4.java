@@ -14,35 +14,33 @@ public class Ficha4 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        long ini, end;
+        int n = 1000000;
+        
+        ini = System.nanoTime();
         BinarySearchTree t = new BinarySearchTree();
-        t.add(5);
-        t.add(3);
-        t.add(2);
-        t.add(4);
-        t.add(7);
-        t.add(6);
-        t.add(8);
-        t.show();
-        System.out.println(t.contains(5));
-        System.out.println(t.contains(3));
-        System.out.println(t.contains(2));
-        System.out.println(t.contains(10));
+        for(int i = 0; i < n;  ) {
+            double r = Math.random();
+            if (!t.contains(r)) {
+                t.add(r);
+                i++;
+            }
+        }
+        end = System.nanoTime();
+        System.out.println("Tree:" + (end-ini));
         
-        System.out.println("------------------");
-        t.remove(2);
-        t.show();
-        System.out.println("------------------");
-        t.remove(3);
-        t.show();
-        System.out.println("------------------");
-        t.remove(5);
-        t.show();
-        System.out.println("------------------");
-        t.remove(4);
-        t.show();
-        
-        System.out.println(t.findMin());
-        System.out.println(t.findMax());
+        ini = System.nanoTime();
+        java.util.LinkedList l = new java.util.LinkedList();
+        for(int i = 0; i < n;  ) {
+            double r = Math.random();
+            if (!l.contains(r)) {
+                l.add(r);
+                i++;
+            }
+        }
+        end = System.nanoTime();
+        System.out.println("List:" + (end-ini));
+               
     }
     
 }
