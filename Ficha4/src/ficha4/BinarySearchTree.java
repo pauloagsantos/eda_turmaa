@@ -47,7 +47,18 @@ public class BinarySearchTree implements Tree {
 
     @Override
     public boolean contains(Comparable o) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return contains(root, o);
+    }
+    
+    private boolean contains(Node current, Comparable o) {
+        if (current == null)
+            return false;
+        else if (current.data.equals(o))
+            return true;
+        else if (o.compareTo(current.data)<0)
+            return contains(current.left, o);
+        else
+            return contains(current.right, o);       
     }
 
     @Override
