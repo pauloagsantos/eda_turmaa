@@ -40,6 +40,9 @@ public class Ficha4 {
         System.out.println("------------------");
         t.remove(4);
         t.show();
+        
+        System.out.println(t.findMin());
+        System.out.println(t.findMax());
     }
     
 }

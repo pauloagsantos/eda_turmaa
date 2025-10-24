@@ -145,12 +145,32 @@ public class BinarySearchTree implements Tree {
 
     @Override
     public Comparable findMin() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (root == null)
+            return null;
+        else
+            return findMin(root);    
+    }
+    
+    private Comparable findMin(Node current) {
+        if (current.left == null)
+            return current.data;
+        else
+            return findMin(current.left);
     }
 
     @Override
     public Comparable findMax() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (root == null)
+            return null;
+        else
+            return findMax(root);    
+    }
+    
+    private Comparable findMax(Node current) {
+        if (current.left == null)
+            return current.data;
+        else
+            return findMax(current.right);
     }
     
     public void show() { 
