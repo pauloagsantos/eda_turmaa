@@ -27,6 +27,19 @@ public class Ficha4 {
         System.out.println(t.contains(3));
         System.out.println(t.contains(2));
         System.out.println(t.contains(10));
+        
+        System.out.println("------------------");
+        t.remove(2);
+        t.show();
+        System.out.println("------------------");
+        t.remove(3);
+        t.show();
+        System.out.println("------------------");
+        t.remove(5);
+        t.show();
+        System.out.println("------------------");
+        t.remove(4);
+        t.show();
     }
     
 }
