@@ -15,6 +15,12 @@ public class Ficha6 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        AVLTree t = new AVLTree();
+        t.add(5);
+        t.add(6);
+        t.add(7);
+        
+        t.show();
     }
     
 }

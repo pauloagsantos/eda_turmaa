@@ -10,6 +10,48 @@ package ficha6;
  */
 public class AVLTree extends BinarySearchTree {
     
+    
+    @Override
+    public void add(Comparable o) {
+        NodeAVL node = new NodeAVL();
+        node.data = o;
+        node.height = 1;
+        node.left = null;
+        node.right = null;
+        if (root == null)
+            root = node;
+        else
+            add(root, node);    
+    }
+    
+    private void add(Node current, Node node) {
+        if (node.data.compareTo(current.data)<0)
+            if (current.left == null)
+                current.left = node;
+            else
+                add(current.left, node);
+        else if (current.right == null)
+            current.right = node;
+        else
+            add(current.right, node);
+        balance(current);
+    }
+    
+    private void balance(Node nodo) {
+        ((NodeAVL)nodo).height = Math.max( height(nodo.left), height(nodo.right) ) + 1;
+        if (factor(nodo) > 1)
+            if (factor(nodo.left) >= 0)
+                nodo = rightRotation(nodo);
+            else
+                nodo = doubleRightRotation(nodo);
+        else if (factor(nodo) < -1)
+            if (factor(nodo.right) <= 0)
+                nodo = leftRotation(nodo);
+            else
+                nodo = doubleLeftRotation(nodo);
+    }
+
+    
     private int factor(Node nodo) {
         return height(nodo.left) - height(nodo.right);
     }
