@@ -96,9 +96,7 @@ public class AVLTreeTest {
         assertEquals(true, t.remove(7));
         assertEquals(true, t.remove(6));
         assertEquals(true, t.remove(5));
-        t.show();
         assertEquals(true, t.remove(4));
-       
         assertEquals(true, t.remove(8));     
     }
 

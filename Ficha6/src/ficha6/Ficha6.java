@@ -15,12 +15,22 @@ public class Ficha6 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        AVLTree t = new AVLTree();
-        t.add(5);
-        t.add(6);
-        t.add(7);
+        long ini, end;
         
-        t.show();
+        ini = System.nanoTime();
+        BinarySearchTree t1 = new BinarySearchTree();
+        for(int i = 0; i <10000; i++)
+            t1.add(i);
+        end = System.nanoTime();
+        System.out.println("BST:" + (end-ini));
+        
+        ini = System.nanoTime();
+        AVLTree t2 = new AVLTree();
+        for(int i = 0; i <1000000; i++)
+            t2.add(i);
+        end = System.nanoTime();
+        System.out.println("AVL:" + (end-ini));
+        
     }
     
 }
