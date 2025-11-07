@@ -195,6 +195,13 @@ public class BinarySearchTree implements Tree {
         Comparable data;
         Node left;
         Node right;
+
+        @Override
+        public String toString() {
+            return "Node{" + "data=" + data + '}';
+        }
+        
+        
     }
     
 }

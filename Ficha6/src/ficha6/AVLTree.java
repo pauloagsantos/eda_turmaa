@@ -4,6 +4,7 @@
  */
 package ficha6;
 
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 /**
@@ -71,28 +72,39 @@ public class AVLTree extends BinarySearchTree {
         if (nodeToRemove == null)
             return false;
         else {
-            if (root.left == null && root.right == null) // árvore apenas com um elemento
+            if (root.left == null && root.right == null) { // árvore apenas com um elemento
                 root = null;
-            else if (root.data.equals(o) && root.left == null && root.right != null) 
+                pilha.pop();
+            } else if (root.data.equals(o) && root.left == null && root.right != null) { 
                 root = root.right;
-            else if (root.data.equals(o) && root.left != null && root.right == null) 
+                pilha.pop();
+                pilha.push(root);
+            } else if (root.data.equals(o) && root.left != null && root.right == null) { 
                 root = root.left;
-            else if (nodeToRemove.left == null && nodeToRemove.right == null) // caso 1: Folha
+                pilha.pop();
+                pilha.push(root);
+            } else if (nodeToRemove.left == null && nodeToRemove.right == null) { // caso 1: Folha
                 if (nodeToRemove.data.compareTo(parent.data)<0)
                     parent.left = null;
                 else
                     parent.right = null;
-            else if (nodeToRemove.left == null && nodeToRemove.right != null) // caso 2.1: Um descendente à direita
+                pilha.pop();
+            }
+            else if (nodeToRemove.left == null && nodeToRemove.right != null) { // caso 2.1: Um descendente à direita
                 if (nodeToRemove.data.compareTo(parent.data)<0)
                     parent.left = nodeToRemove.right;
                 else
                     parent.right = nodeToRemove.right;
-            else if (nodeToRemove.left != null && nodeToRemove.right == null) // caso 2.2: Um descendente à esquerda
+                pilha.pop();
+                pilha.push(nodeToRemove.right);
+            } else if (nodeToRemove.left != null && nodeToRemove.right == null) { // caso 2.2: Um descendente à esquerda
                 if (nodeToRemove.data.compareTo(parent.data)<0)
                     parent.left = nodeToRemove.left;
                 else
                     parent.right = nodeToRemove.left;
-            else { // caso 3: Dois descendentes
+                pilha.pop();
+                pilha.push(nodeToRemove.left);
+            }else { // caso 3: Dois descendentes
                 Node majorNode = nodeToRemove.left;
                 Node parentMajorNode = nodeToRemove;
                 while (majorNode.right != null) {
@@ -105,8 +117,18 @@ public class AVLTree extends BinarySearchTree {
                     parentMajorNode.right = majorNode.left;
                 nodeToRemove.data = majorNode.data;
             }
-            while (!pilha.empty())
-                balance( pilha.pop() );
+            while (!pilha.empty()) {
+                Node nodo = pilha.pop();
+                try {
+                    Node pai = pilha.peek();
+                    if (nodo.data.compareTo(pai.data)<0)
+                        pai.left = balance(nodo);
+                    else
+                        pai.right = balance(nodo);
+                } catch (EmptyStackException e) {
+                    root = balance(nodo);
+                }
+            }
             return true;
         }
     }
