@@ -15,6 +15,13 @@ public class Ficha5 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        HeapMin h = new HeapMin(10);
+        h.add(4);
+        h.add(6);
+        h.add(8);
+        h.add(10);
+        h.add(2);
+        System.out.println(h);
     }
     
 }
