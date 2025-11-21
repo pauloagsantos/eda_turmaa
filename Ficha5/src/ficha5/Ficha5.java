@@ -22,6 +22,10 @@ public class Ficha5 {
         h.add(10);
         h.add(2);
         System.out.println(h);
+        
+        System.out.println(h.contains(2));
+        System.out.println(h.contains(4));
+        System.out.println(h.contains(3));
     }
     
 }
