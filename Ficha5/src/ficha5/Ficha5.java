@@ -4,6 +4,8 @@
  */
 package ficha5;
 
+import java.util.Random;
+
 /**
  *
  * @author IPT
@@ -15,17 +17,20 @@ public class Ficha5 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        HeapMin h = new HeapMin(10);
-        h.add(4);
-        h.add(6);
-        h.add(8);
-        h.add(10);
-        h.add(2);
-        System.out.println(h);
+        int size = 1000000;
+      
+        HeapMax h = new HeapMax(size);
+        Random r = new Random();
+        for (int i = 0; i < size; i++) {
+            h.add(r.nextInt(size));
+        }
         
-        System.out.println(h.contains(2));
-        System.out.println(h.contains(4));
-        System.out.println(h.contains(3));
+        while(!h.isEmpty()) {
+            System.out.print(h.peek()+" ");
+            h.remove(h.peek());
+        }
+        
+        System.out.println("");
     }
     
 }
